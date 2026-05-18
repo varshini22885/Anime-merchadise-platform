@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>OTAKU HAVEN — Premium Anime Merchandise</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+  </head>
+  <body data-page="home">
+    <!-- Navigation -->
+    <header class="nav-wrapper">
+      <nav class="nav container">
+        <a class="brand" href="index.html">
+          <svg class="brand-icon" width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#ff9500;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#ff6b00;stop-opacity:1" />
+              </linearGradient>
+            </defs>
+            <!-- Background circle -->
+            <circle cx="50" cy="50" r="45" fill="#6b3fa0" opacity="0.3"/>
+            <!-- Outer ring -->
+            <circle cx="50" cy="50" r="42" fill="none" stroke="url(#logoGradient)" stroke-width="3"/>
+            <!-- Inner purple ring -->
+            <circle cx="50" cy="50" r="36" fill="none" stroke="#8b5fbf" stroke-width="2" opacity="0.7"/>
+            <!-- Letter A -->
+            <path d="M 35 65 L 50 25 L 65 65 M 40 50 L 60 50" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Decorative swirl bottom right -->
+            <path d="M 62 68 Q 70 65 72 75" fill="none" stroke="url(#logoGradient)" stroke-width="2" stroke-linecap="round"/>
+            <!-- Small stars -->
+            <circle cx="28" cy="35" r="1.5" fill="url(#logoGradient)"/>
+            <circle cx="72" cy="28" r="1.5" fill="url(#logoGradient)"/>
+            <circle cx="75" cy="55" r="1.5" fill="url(#logoGradient)"/>
+          </svg>
+          <div class="logo-title">OTAKU HAVEN</div>
+        </a>
+        <button class="nav-toggle" aria-label="open menu">☰</button>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="all-products.html">All Products</a></li>
+          <li><a href="clothing.html">Clothing</a></li>
+          <li><a href="figures.html">Figures</a></li>
+          <li><a href="posters.html">Posters</a></li>
+          <li><a href="accessories.html">Accessories</a></li>
+        </ul>
+        <div class="nav-icons">
+          <button class="icon search">🔍</button>
+          <button class="icon user">👤</button>
+          <a class="icon cart" href="cart.html">🛒<span id="cart-count">0</span></a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-inner container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow muted">EXPLORE. COLLECT. CELEBRATE.</div>
+          <h1 class="hero-title">ANIME MERCH <span class="accent">FOR TRUE FANS</span></h1>
+          <p class="hero-sub">Premium quality anime merchandise from your favorite series</p>
+          <div class="hero-ctas">
+            <a class="btn primary btn-lg" href="all-products.html">SHOP NOW</a>
+            <a class="btn ghost" href="#trending">Trending</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trending Pills -->
+    <section id="trending" class="trending container fade-up">
+      <h3 class="section-title">Trending This Season</h3>
+      <div class="trending-pills">
+        <a class="pill all-products-home" href="#all-products">All Products</a>
+        <a class="pill" href="clothing.html">Clothing</a>
+        <a class="pill" href="figures.html">Figures</a>
+        <a class="pill" href="posters.html">Posters</a>
+        <a class="pill active" href="accessories.html">Accessories</a>
+      </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured container fade-up">
+      <h2>Featured Products</h2>
+      <div id="products-grid" class="grid products-grid">
+        <!-- products injected by JS -->
+      </div>
+    </section>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="search-modal">
+      <div class="search-overlay" onclick="closeSearch()"></div>
+      <div class="search-container">
+        <div class="search-header">
+          <input type="text" class="search-input" id="search-input" placeholder="Search products, categories...">
+          <button class="close-search" onclick="closeSearch()">✕</button>
+        </div>
+        <div class="search-results" id="search-results"></div>
+      </div>
+    </div>
+
+    <!-- Sign In Modal -->
+    <div class="signin-modal" id="signin-modal">
+      <div class="signin-overlay" onclick="closeSignIn()"></div>
+      <div class="signin-container">
+        <div class="signin-header">
+          <h2>Sign In to OTAKU HAVEN</h2>
+          <button class="close-signin" onclick="closeSignIn()">✕</button>
+        </div>
+        <form id="signin-form" onsubmit="handleSignIn(event)">
+          <div class="form-group">
+            <label for="signin-email">Email Address</label>
+            <input type="email" id="signin-email" name="email" placeholder="your@email.com" required>
+          </div>
+          <button type="submit" class="btn primary btn-lg" style="width:100%">Sign In</button>
+          <p class="signin-note">No password needed! We'll send you a magic link.</p>
+        </form>
+        <div id="signin-success" class="signin-success" style="display:none">
+          <p>✓ Welcome back! You're signed in.</p>
+          <button class="btn primary btn-lg" onclick="closeSignIn()" style="width:100%">Continue Shopping</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <div>© <strong>OTAKU HAVEN</strong> — Premium Anime Merch</div>
+        <div class="foot-links">Made with ❤️ for otaku culture</div>
+      </div>
+    </footer>
+
+    <script src="assets/js/products.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/cart.js"></script>
+  </body>
+</html>

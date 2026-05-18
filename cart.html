@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Cart — OTAKU HAVEN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+  </head>
+  <body data-page="cart">
+    <header class="nav-wrapper">
+      <nav class="nav container">
+        <a class="brand" href="index.html">
+          <svg class="brand-icon" width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#ff9500;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#ff6b00;stop-opacity:1" />
+              </linearGradient>
+            </defs>
+            <!-- Background circle -->
+            <circle cx="50" cy="50" r="45" fill="#6b3fa0" opacity="0.3"/>
+            <!-- Outer ring -->
+            <circle cx="50" cy="50" r="42" fill="none" stroke="url(#logoGradient)" stroke-width="3"/>
+            <!-- Inner purple ring -->
+            <circle cx="50" cy="50" r="36" fill="none" stroke="#8b5fbf" stroke-width="2" opacity="0.7"/>
+            <!-- Letter A -->
+            <path d="M 35 65 L 50 25 L 65 65 M 40 50 L 60 50" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Decorative swirl bottom right -->
+            <path d="M 62 68 Q 70 65 72 75" fill="none" stroke="url(#logoGradient)" stroke-width="2" stroke-linecap="round"/>
+            <!-- Small stars -->
+            <circle cx="28" cy="35" r="1.5" fill="url(#logoGradient)"/>
+            <circle cx="72" cy="28" r="1.5" fill="url(#logoGradient)"/>
+            <circle cx="75" cy="55" r="1.5" fill="url(#logoGradient)"/>
+          </svg>
+          <div class="logo-title">OTAKU HAVEN</div>
+          <small class="subtitle"></small>
+        </a>
+        <button class="nav-toggle" aria-label="open menu">☰</button>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="all-products.html">All Products</a></li>
+          <li><a href="clothing.html">Clothing</a></li>
+          <li><a href="figures.html">Figures</a></li>
+          <li><a href="posters.html">Posters</a></li>
+          <li><a href="accessories.html">Accessories</a></li>
+        </ul>
+        <div class="nav-icons">
+          <button class="icon search">🔍</button>
+          <button class="icon user">👤</button>
+          <a class="icon cart" href="cart.html">🛒<span id="cart-count">0</span></a>
+        </div>
+      </nav>
+    </header>
+
+    <section class="page-hero container">
+      <h1>Your Cart</h1>
+      <p>Items you've added (saved in your browser).</p>
+    </section>
+
+    <main class="container cart-page fade-up">
+      <div class="cart-list" id="cart-list"></div>
+      <aside class="cart-summary">
+        <h3>Order Summary</h3>
+        <div class="summary-lines">
+          <div>Items: <span id="summary-count">0</span></div>
+          <div>Total: <strong id="summary-total">$0.00</strong></div>
+        </div>
+        <button id="checkout-btn" class="btn primary">Checkout</button>
+      </aside>
+    </main>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="search-modal">
+      <div class="search-overlay" onclick="closeSearch()"></div>
+      <div class="search-container">
+        <div class="search-header">
+          <input type="text" class="search-input" id="search-input" placeholder="Search products, categories...">
+          <button class="close-search" onclick="closeSearch()">✕</button>
+        </div>
+        <div class="search-results" id="search-results"></div>
+      </div>
+    </div>
+
+    <!-- Sign In Modal -->
+    <div class="signin-modal" id="signin-modal">
+      <div class="signin-overlay" onclick="closeSignIn()"></div>
+      <div class="signin-container">
+        <div class="signin-header">
+          <h2>Sign In to OTAKU HAVEN</h2>
+          <button class="close-signin" onclick="closeSignIn()">✕</button>
+        </div>
+        <form id="signin-form" onsubmit="handleSignIn(event)">
+          <div class="form-group">
+            <label for="signin-email">Email Address</label>
+            <input type="email" id="signin-email" name="email" placeholder="your@email.com" required>
+          </div>
+          <button type="submit" class="btn primary btn-lg" style="width:100%">Sign In</button>
+          <p class="signin-note">No password needed! We'll send you a magic link.</p>
+        </form>
+        <div id="signin-success" class="signin-success" style="display:none">
+          <p>✓ Welcome back! You're signed in.</p>
+          <button class="btn primary btn-lg" onclick="closeSignIn()" style="width:100%">Continue Shopping</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">© OTAKU HAVEN</div>
+    </footer>
+
+    <script src="assets/js/products.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/cart.js"></script>
+  </body>
+</html>
